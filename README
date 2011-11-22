@@ -14,4 +14,10 @@ repository here:
 
 https://github.com/punkave/phpQuery
 
+"What did you fix?" 
+
+Our initial commit includes a fix for the serialize() method, crucial to do 
+form submissions (a big deal for functional testing). See the commit history
+in github for any later changes.
+
 - P'unk Avenue
