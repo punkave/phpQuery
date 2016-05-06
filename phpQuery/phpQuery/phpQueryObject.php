@@ -1385,24 +1385,73 @@ class phpQueryObject
 	 * @return phpQuery|QueryTemplatesSource|QueryTemplatesParse|QueryTemplatesSourceQuery
 	 * @todo
 	 */
-	public function css() {
+	public function css($propertyName = null, $value = null) {
 		// TODO
+		foreach($this->stack(1) as $node) {
+			if (is_array($propertyName) || ! is_null($value)) {
+				if ( is_array($propertyName) ) {
+					$map = $propertyName;
+				} else {
+					$map = array($propertyName => $value);
+				}
+				$_new_map = array();
+				if ($node->hasAttribute("style")) $styleValue = $node->getAttribute("style");
+				if ($styleValue != "") $_new_map = $this->explodeStyle($styleValue);
+				foreach($map as $prop => $a) {
+					if ($a == "") {
+						unset($_new_map[$prop]);
+					} else {
+						$_new_map[$prop] = $a;
+					}
+				}
+
+				@$node->setAttribute("style", $this->implodeStyle($_new_map));
+				$this->attrEvents($propertyName, "style", $styleValue, $node);
+			} else {
+				$propValue = "";
+				if ($node->hasAttribute("style"))
+				{
+					$styleValue = $node->getAttribute("style");
+					$styleMap = $this->explodeStyle($styleValue);
+					$propValue = $styleMap[$propertyName];
+				}
+				return $propValue;
+			}
+		}
+		return (is_null($value) && ! is_array($propertyName))
+			? '' : $this;
+	}
+	private function explodeStyle($style) {
+		$map = array();
+			$arrStyle = explode(";", $style);
+			foreach ($arrStyle as $value) {
+				$prop = explode(":", $value);
+				$map[$prop[0]] = $prop[1];
+			}
+		return $map;
+	}
+	private function implodeStyle($map) {
+		$styleText = "";
+			foreach ($map as $prop => $value) {
+				if ($prop != "") $arrStyle[] = $prop . ":" . $value;
+			}
+			$styleText = implode(";", $arrStyle);
+		return $styleText;
+	}
+	/**
+	 * @todo
+	 *
+	 */
+	public function show() {
+		$this->css('display', '');
 		return $this;
 	}
 	/**
 	 * @todo
 	 *
 	 */
-	public function show(){
-		// TODO
-		return $this;
-	}
-	/**
-	 * @todo
-	 *
-	 */
-	public function hide(){
-		// TODO
+	public function hide() {
+		$this->css('display', 'none');
 		return $this;
 	}
 	/**
