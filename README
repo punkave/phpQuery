@@ -1,3 +1,6 @@
+Installation via composer
+    composer require 'somesh/php-query'
+or add 'somesh/php-query' as a dependency in composer.json
 This is phpQuery, a PHP port of jQuery selectors, super useful for DOM traversal 
 and functional testing.
 
@@ -21,3 +24,4 @@ form submissions (a big deal for functional testing). See the commit history
 in github for any later changes.
 
 - P'unk Avenue
+
