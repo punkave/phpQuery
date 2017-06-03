@@ -1,0 +1,13 @@
+{
+    "name": "somesh/php-query",
+    "description": "A composer wrapper for the phpQuery package",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "somesh",
+            "email": "mail@somesh.io"
+        }
+    ],
+    "require": {}
+}
