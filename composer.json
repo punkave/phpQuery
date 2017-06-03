@@ -7,7 +7,11 @@
         {
             "name": "somesh",
             "email": "mail@somesh.io"
-        }
+        },
+        
+    ],
+        "files": [
+            "phpQuery/phpQuery.php"
     ],
     "require": {}
 }
