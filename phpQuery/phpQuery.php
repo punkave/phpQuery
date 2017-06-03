@@ -30,7 +30,7 @@ require_once(dirname(__FILE__).'/phpQuery/compat/mbstring.php');
  * @author Tobiasz Cudnik <tobiasz.cudnik/gmail.com>
  * @package phpQuery
  */
-namespace slaith;
+
 abstract class phpQuery {
 	/**
 	 * XXX: Workaround for mbstring problems 
