@@ -7,12 +7,11 @@
         {
             "name": "somesh",
             "email": "mail@somesh.io"
-        },
+        }
         
     ],
-    "autoload":
-    {"files": [
-        "phpQuery/phpQuery.php"
-    ]},
+    "autoload": {
+     "files": [ "phpQuery/phpQuery.php"]
+    },
     "require": {}
 }
