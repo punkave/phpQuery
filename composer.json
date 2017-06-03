@@ -10,8 +10,9 @@
         },
         
     ],
-        "files": [
-            "phpQuery/phpQuery.php"
-    ],
+    "autoload":
+    {"files": [
+        "phpQuery/phpQuery.php"
+    ]},
     "require": {}
 }
