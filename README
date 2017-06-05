@@ -1,5 +1,6 @@
 Installation via composer
 
+
 ```
    composer require 'somesh/php-query'
 ```
