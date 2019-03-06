@@ -919,7 +919,7 @@ class phpQueryObject
 				$text = trim($args, "\"'");
 				$stack = array();
 				foreach($this->elements as $node) {
-					if (mb_stripos($node->textContent, $text) === false)
+					if (($text) && (mb_stripos($node->textContent, $text) === false))
 						continue;
 					$stack[] = $node;
 				}
