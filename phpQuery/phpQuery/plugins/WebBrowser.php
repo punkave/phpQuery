@@ -354,7 +354,7 @@ function resolve_url($base, $url) {
         // Step 3
         if (preg_match('!^[a-z]+:!i', $url)) return $url;
         $base = parse_url($base);
-        if ($url{0} == "#") {
+        if ($url[0] == "#") {
                 // Step 2 (fragment)
                 $base['fragment'] = substr($url, 1);
                 return unparse_url($base);
@@ -367,7 +367,7 @@ function resolve_url($base, $url) {
                         'scheme'=>$base['scheme'],
                         'path'=>substr($url,2),
                 ));
-        } else if ($url{0} == "/") {
+        } else if ($url[0] == "/") {
                 // Step 5
                 $base['path'] = $url;
         } else {
